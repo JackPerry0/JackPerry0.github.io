@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title> Mimicking Backpropogation With Calculating Determinant</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+        <style>
+        /* Reduce top margin/padding for main content */
+        #main {
+            margin-top: -225px !important;
+            margin-bottom: 75px !important;
+            padding-top: 0 !important;
+        }
+        /* Optional: reduce margin for .post section */
+        .post {
+            margin-top: 0 !important;
+        }
+    </style>
+
+    </head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									
+									<h1> IDEA: Mimicking Backpropogation With Calculating Determinant </h1>
+									
+									<h3 style="text-align: left; margin-top: 60px;"> Theory</h3>
+
+									<p style="text-align: left;">
+										<strong>Assumptions: </strong> The determinant can only be found for square matrices, that is to say A is n by n. 
+										
+										<br> <br>
+										
+										<strong>Method: </strong> to calculate the determinant I utilized a special property of matrix determinants, 
+										which is that upper triangular matrices have a determinant equal to the product of their diagonal elements.
+										To achieve this, I row reduced the matrix to an upper triangle and then multiplied the diagonal elements together.
+										But when we row reduce we change the matrix and therefore change the determninant. However, we can keep track of the
+										effects to the determinant by keeping track of the row operations we perform.
+										For example, if we swap two rows, we multiply the determinant by -1. If we multiply a row by a scalar, we multiply the determinant by that scalar.
+										And if we add a multiple of one row to another, we do not change the determinant.
+										Thus, when we row reduce to an upper triangular matrix, we can multiply the 
+										diagonal elements together and then backproppogate through the previous steps to account for the matrix transformations.
+										 
+										<br> <br>
+
+										<strong> Formula: </strong>
+										<br> <br>
+										
+										<strong>For each row:</strong>
+									</p>
+
+										<ol>
+											<li style="text-align: left;"> If the current pivot (when i = j / diagonal entry) is zero swap with the next nonzero row and change the determinant sign </li>
+											<li style="text-align: left;"> Add a scalar multiple of the current row to make the entries in the rows below zero </li>
+										</ol>	
+
+										
+										<p style="text-align: left;"><strong> Then: </strong> </p>
+
+										<ol>
+											<li style="text-align: left;"> multiply the diagonal and traceback to account for swap transformations</li>
+										</ol>
+
+										
+									<p style="text-align: left;"> 
+
+										<strong> Note: </strong> One modification I made to the algorithm was that instead of backproppogating,
+										I would just keep track of the changes to the determinant and pass it foward through the row operations.
+										<br> <br>
+
+										<strong>Example: </strong> 
+										<br> <br>
+									
+										</p>
+									
+								</header>
+								<div class="image main"><img src="images/projectdeterminantimage01.png" alt="" /></div>
+								<div class="image main"><img src="images/projectdeterminantimage04.png" alt="" /></div>
+								<div class="image main"><img src="images/projectdeterminantimage05.png" alt="" /></div>
+
+								<p style= "text-align: left;">
+									<Strong> Implementation: </Strong>
+
+									<br> <br>
+
+									The full implementation can be found here: <a href="https://github.com/JackPerry0/DeterminantCalculator/blob/main/DeterminantBackPropogationCalculator.ipynb" target="_blank" rel="noopener noreferrer"> https://github.com/JackPerry0/DeterminantCalculator/blob/main/DeterminantBackPropogationCalculator.ipynb </a>.
+
+
+								</p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
