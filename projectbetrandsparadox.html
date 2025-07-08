@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Bertrand’s Paradox Simulation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+        <style>
+        /* Reduce top margin/padding for main content */
+        #main {
+            margin-top: -225px !important;
+            margin-bottom: 75px !important;
+            padding-top: 0 !important;
+        }
+        /* Optional: reduce margin for .post section */
+        .post {
+            margin-top: 0 !important;
+        }
+    </style>
+
+    </head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									
+									<h1> IDEA: Bertrand’s Paradox Simulation </h1>
+									
+									<h3 style="text-align: left; margin-top: 60px;">Overview</h3>
+									
+									<p style="text-align: left;">
+										This project simulates a variant of Bertrand’s paradox using a three-box and coin setup.
+										The paradox illustrates how different interpretations of "random selection" can lead to varying and sometimes paradoxical probabilities.
+										Here, three boxes each contain two coins that may be gold (g) or silver (s), and the simulation estimates the probability that if one coin drawn is gold, the other coin in the same box is also gold.
+									</p>
+
+									<h3 style="text-align: left;">Initial Approach and Misinterpretation</h3>
+									<p style="text-align: left;">
+										Initially, the simulation incorrectly modeled the problem by selecting a box at random and examining only the first coin's face.
+										This simplified the sample space to three options, ignoring that the true selection should be over all coins (six options).
+										This oversight led to a misleading 50% probability and contradictory results when coin positions were swapped.
+									</p>
+
+									<h3 style="text-align: left;">Key Issue: Defining the Sample Space</h3>
+									<p style="text-align: left;">
+										The paradox stems from how the random choice is interpreted.
+										- Selecting a box first: 3 possible choices.
+										- Selecting a coin first: 6 possible choices (2 coins per box × 3 boxes).
+										Correctly defining the sample space as selecting a coin uniformly at random changes the probability drastically.
+									</p>
+
+									<h3 style="text-align: left;">Correct Implementation</h3>
+									<p style="text-align: left;">
+										In the accurate simulation:
+										<ul>
+											<li>One coin is chosen uniformly at random from all coins.</li>
+											<li>If the selected coin is gold, the other coin in the same box is checked.</li>
+											<li>The average is updated to estimate the probability that both coins in the chosen box are gold.</li>
+										</ul>
+										This yields a probability close to 2/3, consistent with the classical solution to Bertrand’s paradox in this setup.
+									</p>
+
+									<h3 style="text-align: left;">Summary and Takeaways</h3>
+									<p style="text-align: left;">
+										This exercise highlights the importance of carefully defining random processes and sample spaces in probability problems.
+										Assuming intuitive or simplified models can yield paradoxical or incorrect results.
+										Bertrand’s paradox serves as a classic example of how subtle changes in problem interpretation can flip outcomes dramatically.
+									</p>
+
+									<h3 style="text-align: left;">Code Links and Further Reading</h3>
+									<p style="text-align: left;">
+										The full simulation code demonstrating the initial misinterpretation and the corrected version is available here:
+										<br><br>
+										<a href="https://colab.research.google.com/drive/1cM06WvX3J8BrzTngWqA2YCuJph35bIK7?usp=sharing" target="_blank" rel="noopener noreferrer">
+											Bertrand’s Paradox Simulation in Colab
+										</a>
+									</p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

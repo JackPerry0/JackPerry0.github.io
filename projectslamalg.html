@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title> SLAM Algorithm Implementation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+        <style>
+        /* Reduce top margin/padding for main content */
+        #main {
+            margin-top: -225px !important;
+            margin-bottom: 75px !important;
+            padding-top: 0 !important;
+        }
+        /* Optional: reduce margin for .post section */
+        .post {
+            margin-top: 0 !important;
+        }
+    </style>
+
+    </head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									
+									<h1> IDEA: Simulatneuous Localization and Mapping Algorithm </h1>
+									
+									<h3 style="text-align: left; margin-top: 60px;">Overview</h3>
+									
+									<p style="text-align: left;">
+										This project implements a custom SLAM algorithm using an XRP robot equipped with an IMU and ultrasonic rangefinder. 
+										The robot collects 360° distance data while rotating, and uses this data to build a 2D occupancy grid map of its environment.
+										Each cell in the grid represents terrain as navigable (0), unknown (-1), an obstacle (5), or the robot's position (2).
+									</p>
+
+									<h3 style="text-align: left;">Theory and Methodology</h3>
+									<p style="text-align: left;">
+										The robot rotates and scans distances at different angles using its ultrasonic sensor. These raw distance values are then normalized 
+										using a dynamic scaling factor to fit into a 2D grid. The center of the grid is initialized as the robot's position, and obstacles 
+										are plotted based on polar to Cartesian conversion. Free space between the robot and obstacles is marked as navigable.
+									</p>
+
+									<ol>
+										<li style="text-align: left;">Scan 360° and store distances in a polar array.</li>
+										<li style="text-align: left;">Convert each angle-distance pair into (x, y) coordinates on a map grid.</li>
+										<li style="text-align: left;">Mark the robot's location and fill in navigable space between robot and obstacles.</li>
+									</ol>
+
+									<p style="text-align: left;">
+										After the map is created, a compression function ("squashMap") reduces map resolution for faster visualization and path planning, preserving priority values (robot > obstacle > free > unknown).
+									</p>
+
+									<h3 style="text-align: left;">Visualization</h3>
+									<p style="text-align: left;">
+										A color-coded output is printed to terminal using ANSI escape codes:
+										<ul>
+											<li><span style="color:green;">Green (2): Robot Position</span></li>
+											<li><span style="color:red;">Red (5): Obstacles</span></li>
+											<li><span style="color:blue;">Blue (0): Navigable Area</span></li>
+											<li>White (-1): Unknown Area</li>
+										</ul>
+									</p>
+
+									<h3 style="text-align: left;">Reinforcement Learning Extension</h3>
+									<p style="text-align: left;">
+										A custom Q-Learning algorithm was implemented to help the robot learn optimal navigation policies to reach perimeter points. The reward system penalizes collisions and encourages reaching goal positions while avoiding risky zones.
+									</p>
+
+									<h3 style="text-align: left;">Implementation</h3>
+									<p style="text-align: left;">
+										The full implementation, including distance scanning, map creation, color visualization, and reinforcement learning (Q-learning), can be found here:
+										<br><br>
+										<a href="https://github.com/JackPerry0/slamAlg/blob/main/slamAlg.ipynb" target="_blank" rel="noopener noreferrer">
+											https://github.com/JackPerry0/slamAlg/blob/main/slamAlg.ipynb
+										</a>
+									</p>
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
