@@ -1,59 +1,149 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jack Perry</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 720px;
+      max-width: 900px;
       margin: 80px auto;
       padding: 0 20px;
       line-height: 1.7;
       color: #222;
     }
 
-    h1 { margin-bottom: 5px; }
-    h2 { margin-top: 40px; }
-    a { color: #245a8d; }
-    .subtitle { color: #666; }
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      margin-top: 50px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    a {
+      color: #245a8d;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .about {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .profile-photo {
+      width: 220px;
+      border-radius: 8px;
+    }
+
+    .presentation-photo {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .about {
+        flex-direction: column;
+      }
+
+      .profile-photo {
+        width: 180px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <h1>Jack Perry</h1>
   <p class="subtitle">
-    Computer Science | Wake Forest University
+    Senior, Wake Forest University<br>
+    Research under Dr. Fan Yang
   </p>
 
-  <p>
-    I am an undergraduate researcher interested in
-    automated scientific discovery, machine learning,
-    and structured knowledge representation.
-  </p>
+  <div class="about">
+    <div class="about-text">
+      <p>
+        Hi, I am currently a senior at Wake Forest University, conducting research under Dr. Fan Yang.
+        My research interests center on how machine learning can help accelerate and automate scientific processes.
+      </p>
 
-  <h2>Research</h2>
-  <p>
-    My research explores methods for enabling AI systems
-    to autonomously generate hypotheses, discover useful
-    abstractions, and build scientific knowledge.
-  </p>
+      <p>
+        Currently, I am investigating how we can learn “research taste” in mathematics and how
+        agents can represent their understanding of a given system over extended periods of exploration
+        and learning.
+      </p>
 
-  <h2>Projects</h2>
-  <p>
-    <strong>Concept-Guided Hypothesis Generation</strong><br>
-    Investigating methods for discovering mathematical
-    relationships in knowledge graphs.
-  </p>
+      <p>
+        I believe that future research in AI for Science will increasingly focus on agentic systems
+        capable of sustained exploration, abstraction, and learning over long time horizons.
+      </p>
 
-  <h2>Publications & Presentations</h2>
-  <p>Research presentations and papers coming soon.</p>
+      <p>
+        I especially enjoy developing positional arguments about these topics and discussing them at conferences.
+        If any of my work looks interesting, please reach out — I would love to chat.
+      </p>
+    </div>
+
+    <img src="images/headshot.jpg" alt="Photo of Jack Perry" class="profile-photo">
+  </div>
+
+  <h2>Presentation Photo</h2>
+  <p>Photo from my IRIS conference oral presentation.</p>
+  <img src="images/iris_presentation.jpg" alt="Jack Perry giving an oral presentation at IRIS" class="presentation-photo">
+
+  <h2>Presentations</h2>
+  <ul>
+    <li>
+      <strong>IRIS Conference Oral Presentation</strong><br>
+      <a href="pdfs/iris_abstract.pdf" target="_blank">Abstract (PDF)</a>
+    </li>
+    <li>
+      <strong>URECA Poster Presentation</strong><br>
+      <a href="pdfs/ureca_abstract.pdf" target="_blank">Abstract (PDF)</a> |
+      <a href="pdfs/ureca_poster.pdf" target="_blank">Poster (PDF)</a>
+    </li>
+  </ul>
+
+  <h2>Publications</h2>
+  <p>Publications coming soon.</p>
+
+  <h2>Sample Work</h2>
+  <ul>
+    <li><a href="pdfs/honors_thesis_proposal.pdf" target="_blank">Honors Thesis Proposal</a></li>
+    <li><a href="pdfs/grfp_personal_statement.pdf" target="_blank">NSF GRFP Personal Statement</a></li>
+    <li><a href="pdfs/grfp_research_statement.pdf" target="_blank">NSF GRFP Research Statement</a></li>
+  </ul>
 
   <h2>Contact</h2>
-  <p>Contact information coming soon.</p>
+  <p>Email: <a href="mailto:jperry6464@gmail.com">jperry6464@gmail.com</a></p>
 </body>
 </html>
